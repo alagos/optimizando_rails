@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125192806) do
+ActiveRecord::Schema.define(:version => 20121125215625) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(:version => 20121125192806) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "countries", ["name"], :name => "index_countries_on_name"
+
   create_table "states", :force => true do |t|
     t.string   "iso"
     t.string   "name"
@@ -27,5 +29,10 @@ ActiveRecord::Schema.define(:version => 20121125192806) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "states", ["country_id", "name"], :name => "index_states_on_country_id_and_name"
+  add_index "states", ["country_id"], :name => "index_states_on_country_id"
+
+  add_foreign_key "states", "countries", :name => "states_country_id_fk"
 
 end
