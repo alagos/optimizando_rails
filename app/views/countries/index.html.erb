@@ -1,10 +1,11 @@
-<h1>Listing countries</h1>
+<h1>Países</h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Nombre</th>
     <th>Iso</th>
-    <th></th>
+    <th>Primer Estado</th>
+    <th>Total. Estados</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,9 +14,15 @@
   <tr>
     <td><%= country.name %></td>
     <td><%= country.iso %></td>
-    <td><%= link_to 'Show', country %></td>
-    <td><%= link_to 'Edit', edit_country_path(country) %></td>
-    <td><%= link_to 'Destroy', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <% if !country.states.blank? %>
+        <%= country.states.first.name %>
+      <% end %>
+    </td>
+    <td><%= country.states.count %></td>
+    <td><%= link_to 'Ver', country %></td>
+    <td><%= link_to 'Editar', edit_country_path(country) %></td>
+    <td><%= link_to 'Borrar', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
