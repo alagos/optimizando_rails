@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20121125215625) do
 
   add_index "states", ["country_id", "name"], :name => "index_states_on_country_id_and_name"
   add_index "states", ["country_id"], :name => "index_states_on_country_id"
+  add_index "states", ["name"], :name => "index_states_on_name"
 
   add_foreign_key "states", "countries", :name => "states_country_id_fk"
 

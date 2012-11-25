@@ -2,7 +2,9 @@ class StatesController < ApplicationController
   # GET /states
   # GET /states.json
   def index
-    @states = State.all
+    @q = State.search(params[:q])
+    @countries = Country.all
+    @states = @q.result(:distinct => true)
 
     respond_to do |format|
       format.html # index.html.erb

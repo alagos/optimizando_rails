@@ -1,10 +1,17 @@
-<h1>Listing states</h1>
+<h1>Estados</h1>
+
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.text_field :name_cont %>
+  <%= f.label :country_id_eq %>
+  <%= f.collection_select :country_id_eq, @countries, :id, :name, :include_blank => 'Selecciona País'%>
+  <%= f.submit %>
+<% end %>
 
 <table>
   <tr>
     <th>Iso</th>
-    <th>Name</th>
-    <th>References</th>
+    <th>Nombre</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +21,6 @@
   <tr>
     <td><%= state.iso %></td>
     <td><%= state.name %></td>
-    <td><%= state.references %></td>
     <td><%= link_to 'Show', state %></td>
     <td><%= link_to 'Edit', edit_state_path(state) %></td>
     <td><%= link_to 'Destroy', state, method: :delete, data: { confirm: 'Are you sure?' } %></td>

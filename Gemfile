@@ -29,6 +29,8 @@ gem "bullet", :group => "development"
 gem 'foreigner'
 gem 'immigrant'
 
+gem 'ransack'
+gem 'hirb'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
