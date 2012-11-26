@@ -1,15 +1,17 @@
 class CountriesController < ApplicationController
-  # GET /countries
-  # GET /countries.json
+
+ caches_page :index2
+  
   def index
     @countries = Country.all
-    # @countries = Country.all_states_and_counts_included
     # @countries = Country.all_states_included
+    # @countries = Country.all_states_and_counts_included
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @countries }
-    end
+  end
+
+  def index2
+    @countries = Country.all_states_and_counts_included
+    render action: 'index'
   end
 
   # GET /countries/1
@@ -43,15 +45,11 @@ class CountriesController < ApplicationController
   # POST /countries.json
   def create
     @country = Country.new(params[:country])
-
-    respond_to do |format|
-      if @country.save
-        format.html { redirect_to @country, notice: 'Country was successfully created.' }
-        format.json { render json: @country, status: :created, location: @country }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @country.errors, status: :unprocessable_entity }
-      end
+    if @country.save
+      expire_page :action => :index
+      redirect_to @country, notice: 'Country was successfully created.'
+    else
+      render action: "new"
     end
   end
 
