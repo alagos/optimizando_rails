@@ -19,7 +19,7 @@
         <%= country.states.first.name %>
       <% end %>
     </td>
-    <td><%= country.states.count %></td>
+    <td><%= country.count_states %></td>
     <td><%= link_to 'Ver', country %></td>
     <td><%= link_to 'Editar', edit_country_path(country) %></td>
     <td><%= link_to 'Borrar', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>

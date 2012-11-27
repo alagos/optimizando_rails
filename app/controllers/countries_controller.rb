@@ -5,9 +5,9 @@ class CountriesController < ApplicationController
   cache_sweeper :country_sweeper
   
   def index
-    @countries = Country.all
+    # @countries = Country.all
     # @countries = Country.all_states_included
-    # @countries = Country.all_states_and_counts_included
+    @countries = Country.all_states_and_counts_included
   end
 
   def index_page_cached
