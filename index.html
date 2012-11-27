@@ -49,14 +49,21 @@
           <h2>Sistema de ejemplo</h2>
           <img src="images/1.png">
           <p>
-            <a href="https://github.com/wdblair/Rails-Seed-All-Countries-and-All-States">github.com/wdblair/Rails-Seed-All-Countries-and-All-States</a>
+            <a href="https://github.com/alagos/optimizando_rails">
+              github.com/alagos/optimizando_rails
+            </a>
           </p>
         </section>
-
+<!--
+  -  SECCION ACTIVE RECORD
+ -->
         <section>
           <h2>Active Record</h2>
           <h3>Queries N+1</h3>
-          <pre><code contenteditable class="erb">
+          <pre><code contenteditable >
+  @countries = Country.all
+          </code></pre>
+          <pre><code contenteditable>
   <% @countries.each do |country| %>
     &lt;tr&gt;
       &lt;td&gt;<%= country.name %>&lt;/td&gt;
@@ -96,7 +103,72 @@ Processing by CountriesController#index as HTML
   State Load (0.6ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 9
    (0.5ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 9
           </code></pre>
-          <h4 class="fragment">Bullet <a href="http://github.com/flyerhzm/bullet">github.com/flyerhzm/bullet</a></h4>
+        </section>
+
+        <section>
+          <h2>Active Record</h2>
+          <h3>Queries N+1</h3>
+          <pre><code contenteditable>
+  # @countries = Country.all
+  @countries = Country.includes(:states)
+          </code></pre>
+        </section>
+
+        <section class="big_section">
+          <h2>Active Record</h2>
+          <h3>Queries N+1</h3>
+          <pre class="big_code"><code contenteditable>
+Started GET "/" for 127.0.0.1 at 2012-11-26 23:11:49 -0300
+Processing by CountriesController#index as HTML
+  Country Load (0.4ms)  SELECT `countries`.* FROM `countries` 
+  State Load (2.7ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9)
+   (0.4ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 1
+   (0.4ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 2
+   (0.4ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 3
+   (0.3ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 4
+   (0.3ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 5
+   (0.3ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 6
+   (0.3ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 7
+   (0.3ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 8
+   (0.3ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 9
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Active Record</h2>
+          <h3>Queries N+1</h3>
+          <pre><code contenteditable>
+  # @countries = Country.all
+  # @countries = Country.includes(:states)
+  @countries = Country.includes(:states)
+    .select('countries.*, count(states.id) as count_states')
+    .joins('LEFT OUTER JOIN 
+            states ON states.country_id = countries.id')
+    .group('countries.id')
+          </code></pre>
+          <pre><code contenteditable>
+&lt;!-- <%= country.states.count %></td> -->
+<td><%= country.count_states %></td>
+          </code></pre>
+        </section>
+
+        <section class="big_section">
+          <h2>Active Record</h2>
+          <h3>Queries N+1</h3>
+          <pre class="big_code"><code contenteditable>
+Started GET "/" for 127.0.0.1 at 2012-11-26 23:19:31 -0300
+Processing by CountriesController#index as HTML
+  Country Load (0.5ms)  SELECT countries.*, count(states.id) as count_states FROM `countries` LEFT OUTER JOIN states ON states.country_id = countries.id GROUP BY countries.id
+  State Load (2.5ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9)
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Active Record</h2>
+          <h3>Queries N+1</h3>
+          <h4>Bullet <a href="http://github.com/flyerhzm/bullet">github.com/flyerhzm/bullet</a></h4>
+          PONER UN PANTALLAZO CON BULLET
+          <img class="fragment" width="80%" height="40%" src="images/11.png">
         </section>
 
         <section>
@@ -141,10 +213,119 @@ Processing by CountriesController#index as HTML
 1 row in set
           </code></pre>
         </section>
+<!--
+  -  SECCION CACHING
+ -->
+        <section>
+          <h2>Caching</h2>
+          <h3>SQL Caching</h3>
+          <pre><code contenteditable>
+    @countries = Rails.cache.fetch('sql_countries') do
+      Country.all_states_and_counts_included.all
+    end
+          </code></pre>
+        </section>
 
         <section>
-          <h2>Active Record</h2>
-          <h3>Cache Queries</h3>
+          <h2>Caching</h2>
+          <h3>Page Caching</h3>
+          <pre><code contenteditable>
+  class CountriesController &lt; ApplicationController
+
+    caches_page :index
+          </code></pre>
+          <img class="fragment" width="40%" height="40%" src="images/7.png">
+        </section>
+
+        <section>
+          <h2>Caching</h2>
+          <h3>Action Caching</h3>
+          <pre><code contenteditable>
+  class CountriesController &lt; ApplicationController
+    
+    caches_action :index
+          </code></pre>
+          <img class="fragment" width="80%" height="40%" src="images/11.png">
+        </section>
+
+        <section>
+          <h2>Caching</h2>
+          <h3>Fragment Caching</h3>
+          <pre><code contenteditable>
+<% cache :recent_countries do %>
+  &lt;div>
+    &lt;strong>Últimos Países modificados&lt;/strong>
+    &lt;ul>
+      &lt;% @recent_countries.each do |c| %>
+        &lt;li>&lt;%= link_to c.name, c %>&lt;/li>
+      &lt;% end%>
+    &lt;/ul>
+  &lt;/div>
+<% end %>
+          </code></pre>
+          <h4 class="fragment">
+            Cache Digests <a href="https://github.com/rails/cache_digests">github.com/rails/cache_digests</a>
+          </h4>
+        </section>
+
+        <section>
+          <h2>Caching</h2>
+          <h3>Renovar Cache</h3>
+          <pre><code contenteditable>
+    def create
+      @country = Country.new(params[:country])
+      if @country.save
+        expire_page :action => :index
+        expire_action :action => :index
+        expire_fragment :action => :index
+        redirect_to @country
+      else
+        render action: "new"
+      end
+    end
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Caching</h2>
+          <h3>Sweepers</h3>
+          <pre><code contenteditable>
+  class CountrySweeper < ActionController::Caching::Sweeper
+    observe Country
+
+    def after_create(country)
+      expire_cache_for(country)
+    end
+   
+    def after_update(country)
+      expire_cache_for(country)
+    end
+   
+    def after_destroy(country)
+      expire_cache_for(country)
+    end
+   
+    private
+    def expire_cache_for(country)
+      expire_page(:controller => 'countries', :action => 'index')
+    end
+  end
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Caching</h2>
+          <h3>Sweepers</h3>
+          <pre><code contenteditable class="ruby">
+  class CountriesController &lt; ApplicationController
+    
+    caches_page :index
+    cache_sweeper :country_sweeper
+          </code></pre>
+        </section>
+
+        <section>
+          <h1>¿Preguntas?</h1>
         </section>
 
       </div>
