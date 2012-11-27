@@ -1,0 +1,32 @@
+<h1>Países</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Iso</th>
+    <th>Primer Estado</th>
+    <th>Total. Estados</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @countries.each do |country| %>
+  <tr>
+    <td><%= country.name %></td>
+    <td><%= country.iso %></td>
+    <td>
+      <% if !country.states.blank? %>
+        <%= country.states.first.name %>
+      <% end %>
+    </td>
+    <td><%= country.count_states %></td>
+    <td><%= link_to 'Ver', country %></td>
+    <td><%= link_to 'Editar', edit_country_path(country) %></td>
+    <td><%= link_to 'Borrar', country, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Country', new_country_path %>

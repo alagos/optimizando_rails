@@ -54,7 +54,10 @@ OptimizandoRails::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'countries#index'
 
-  match 'countries_cached' => 'countries#index2'
+  match 'countries_cached' => 'countries#index_page_cached'
+  match 'countries_action_cached' => 'countries#index_action_cached'
+  match 'countries_fragment_cached' => 'countries#index_fragment_cached'
+  match 'countries_sql_cached' => 'countries#index_sql_cached'
 
   # See how all your routes lay out with "rake routes"
 

@@ -1,17 +1,32 @@
 class CountriesController < ApplicationController
 
- caches_page :index2
+  caches_page :index_page_cached
+  caches_action :index_action_cached
+  cache_sweeper :country_sweeper
   
   def index
     @countries = Country.all
     # @countries = Country.all_states_included
     # @countries = Country.all_states_and_counts_included
-
   end
 
-  def index2
+  def index_page_cached
     @countries = Country.all_states_and_counts_included
-    render action: 'index'
+  end
+
+  def index_action_cached
+    @countries = Country.all_states_and_counts_included
+  end
+
+  def index_fragment_cached
+    @countries = Country.all_states_and_counts_included
+    @recent_countries = Country.order('updated_at desc').limit 5
+  end
+
+  def index_sql_cached
+    @countries = Rails.cache.fetch('sql_countries') do
+      Country.all_states_and_counts_included.all
+    end
   end
 
   # GET /countries/1
@@ -46,7 +61,6 @@ class CountriesController < ApplicationController
   def create
     @country = Country.new(params[:country])
     if @country.save
-      expire_page :action => :index
       redirect_to @country, notice: 'Country was successfully created.'
     else
       render action: "new"

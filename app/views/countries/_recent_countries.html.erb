@@ -1,0 +1,10 @@
+<% cache @recent_countries do %>
+  <div>
+    <strong> Últimos Países modificados</strong>
+    <ul>
+      <% @recent_countries.each do |c| %>
+        <li><%= link_to c.name, c %></li>
+      <% end%>
+    </ul>
+  </div>
+<% end %>

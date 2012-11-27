@@ -29,6 +29,9 @@ gem "bullet", :group => "development"
 gem 'foreigner'
 gem 'immigrant'
 
+# Visualiza actualizaciones de fragment cache
+gem 'cache_digests'
+
 #Otras gemas de ayuda
 gem 'ransack'
 gem 'hirb'
