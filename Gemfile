@@ -34,8 +34,15 @@ gem 'cache_digests'
 # Para hacer links de páginas mas rápidos
 gem 'turbolinks'
 
+# Compresión de assets
 gem 'uglifier'
 gem 'yui-compressor'
+
+# Profiling
+gem 'ruby-prof'
+gem 'test-unit'
+gem 'rack-mini-profiler'
+
 #Otras gemas de ayuda
 gem 'ransack'
 gem 'hirb'
