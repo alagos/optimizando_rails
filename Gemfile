@@ -32,10 +32,14 @@ gem 'immigrant'
 # Visualiza actualizaciones de fragment cache
 gem 'cache_digests'
 
+# Para hacer links de páginas mas rápidos
+gem 'turbolinks'
+
 #Otras gemas de ayuda
 gem 'ransack'
 gem 'hirb'
 gem 'thin'
+gem 'will_paginate'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

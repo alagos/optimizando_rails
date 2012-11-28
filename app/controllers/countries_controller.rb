@@ -29,6 +29,10 @@ class CountriesController < ApplicationController
     end
   end
 
+  def index_paged
+    @countries = Country.paginate(:page => params[:page]).all_states_and_counts_included
+  end
+
   # GET /countries/1
   # GET /countries/1.json
   def show

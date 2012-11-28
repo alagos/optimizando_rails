@@ -58,6 +58,7 @@ OptimizandoRails::Application.routes.draw do
   match 'countries_action_cached' => 'countries#index_action_cached'
   match 'countries_fragment_cached' => 'countries#index_fragment_cached'
   match 'countries_sql_cached' => 'countries#index_sql_cached'
+  match 'countries_paged' => 'countries#index_paged'
 
   # See how all your routes lay out with "rake routes"
 
