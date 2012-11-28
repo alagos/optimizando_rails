@@ -474,6 +474,77 @@ countries_new-e217631d58cf3e5137fb1013c0f5f4be.js.gz -->
         </section>
 
         <section>
+          <h2>Performance</h2>
+          <h3>ruby-prof</h3>
+          <pre><code contenteditable>
+  $ rails generate performance_test index
+          </code></pre>
+          <pre><code contenteditable>
+  require 'test_helper'
+  require 'rails/performance_test_help'
+
+  class IndexTest < ActionDispatch::PerformanceTest
+    def test_homepage
+      get '/'
+    end
+  end
+          </code></pre>
+          <pre><code contenteditable>
+  $ rake test:benchmark
+  $ rake test:profile
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Performance</h2>
+          <h3>ruby-prof</h3>
+          <pre><code contenteditable>
+$ rails benchmarker 'Country.all' --runs 10 --metrics wall_time,memory            
+Loaded suite script/rails
+Started
+BenchmarkerTest#test_country_all (58 ms warmup)
+           wall_time: 25 ms
+              memory: unsupported
+.
+
+Finished in 0.898504058 seconds.
+
+2 tests, 0 assertions, 0 failures, 0 errors, 0 pendings, 0 omissions, 0 notifications
+0% passed</code></pre>
+          <pre><code contenteditable>
+$ rails profiler 'Country.all' --runs 10 --metrics process_time --formats flat
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Performance</h2>
+          <h3>request-log-analyzer</h3>
+          <pre><code contenteditable>
+$request-log-analyzer production.log --file log.html --output HTML
+          </code></pre>
+          <iframe class="fragment" src="log.html" width="100%" height="50%"></iframe>
+        </section>
+
+        <section>
+          <h2>Performance</h2>
+          <h3>rack-mini-profiler</h3>
+          <pre><code contenteditable>
+  gem 'rack-mini-profiler'
+          </code></pre>
+          <img class="fragment" src="images/31.png">
+        </section>
+
+        <section>
+          <h2>Performance</h2>
+          <h3>Monitorización</h3>
+          <ul>
+            <li>new-relic</li>
+            <li>scout</li>
+            <li>monit</li>
+          </ul>
+        </section>
+
+        <section>
           <h2>Tips al cierre</h2>
           <ul>
             <li>Correr tareas lentas en background (delayed_job / resque)</li>

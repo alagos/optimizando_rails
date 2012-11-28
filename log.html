@@ -1,0 +1,1163 @@
+<html><head><title>Request-log-analyzer report</title><style type="text/css">
+        body {
+        	font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        	color: #4f6b72;
+        	background: #E6EAE9;
+        	padding-left:20px;
+        	padding-top:20px;
+        	padding-bottom:20px;
+        }
+
+        a {
+        	color: #c75f3e;
+        }
+
+        .color_bar {
+          border: 1px solid;
+          height:10px;
+        	background: #CAE8EA;
+        }
+
+        #mytable {
+        	width: 700px;
+        	padding: 0;
+        	margin: 0;
+        	padding-bottom:10px;
+        }
+
+        caption {
+        	padding: 0 0 5px 0;
+        	width: 700px;	
+        	font: italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        	text-align: right;
+        }
+
+        th {
+        	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        	color: #4f6b72;
+        	border-right: 1px solid #C1DAD7;
+        	border-bottom: 1px solid #C1DAD7;
+        	border-top: 1px solid #C1DAD7;
+        	letter-spacing: 2px;
+        	text-transform: uppercase;
+        	text-align: left;
+        	padding: 6px 6px 6px 12px;
+        	background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+        }
+
+        td {
+        	font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+        	border-right: 1px solid #C1DAD7;
+        	border-bottom: 1px solid #C1DAD7;
+        	background: #fff;
+        	padding: 6px 6px 6px 12px;
+        	color: #4f6b72;
+        }
+
+        td.alt {
+        	background: #F5FAFA;
+        	color: #797268;
+        }
+        </style></head><body><h1>Request-log-analyzer summary report</h1><p>Version 1.12.4 - written by Willem van Bergen and Bart ten Brinke</p><h2>Request summary</h2>
+<table id="mytable" cellspacing="0"><tr><td class="alt">Processsed File:</td>
+<td class="alt">/home/alter/temp2/logs/biglog.log</td></tr><tr><td>Parsed lines:</td>
+<td>63528</td></tr><tr><td class="alt">Skipped lines:</td>
+<td class="alt">891</td></tr><tr><td>Parsed requests:</td>
+<td>17531</td></tr><tr><td class="alt">Skipped requests:</td>
+<td class="alt">0</td></tr><tr><td>Warnings:</td>
+<td>no_current_request: 891</td></tr></table>
+<table id="mytable" cellspacing="0"><tr><td class="alt">First request:</td>
+<td class="alt">2012-11-09 01:08:01</td></tr><tr><td>Last request:</td>
+<td>2012-11-23 00:05:12</td></tr><tr><td class="alt">Total time analyzed:</td>
+<td class="alt">14 days</td></tr></table><h2>Request distribution per hour</h2>
+<table id="mytable" cellspacing="0"><tr><td class="alt">  0:00</td>
+<td class="alt">37 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:5px;"/></td></tr><tr><td>  1:00</td>
+<td>26 hits/day</td>
+<td><div class='color_bar' style="width:3px;"/></td></tr><tr><td class="alt">  2:00</td>
+<td class="alt">34 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:5px;"/></td></tr><tr><td>  3:00</td>
+<td>15 hits/day</td>
+<td><div class='color_bar' style="width:2px;"/></td></tr><tr><td class="alt">  4:00</td>
+<td class="alt">9 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:1px;"/></td></tr><tr><td>  5:00</td>
+<td>3 hits/day</td>
+<td><div class='color_bar' style="width:0px;"/></td></tr><tr><td class="alt">  6:00</td>
+<td class="alt">1 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:0px;"/></td></tr><tr><td>  7:00</td>
+<td>1 hits/day</td>
+<td><div class='color_bar' style="width:0px;"/></td></tr><tr><td class="alt">  8:00</td>
+<td class="alt">1 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:0px;"/></td></tr><tr><td>  9:00</td>
+<td>1 hits/day</td>
+<td><div class='color_bar' style="width:0px;"/></td></tr><tr><td class="alt"> 10:00</td>
+<td class="alt">1 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:0px;"/></td></tr><tr><td> 11:00</td>
+<td>14 hits/day</td>
+<td><div class='color_bar' style="width:2px;"/></td></tr><tr><td class="alt"> 12:00</td>
+<td class="alt">60 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:9px;"/></td></tr><tr><td> 13:00</td>
+<td>80 hits/day</td>
+<td><div class='color_bar' style="width:12px;"/></td></tr><tr><td class="alt"> 14:00</td>
+<td class="alt">95 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:15px;"/></td></tr><tr><td> 15:00</td>
+<td>145 hits/day</td>
+<td><div class='color_bar' style="width:22px;"/></td></tr><tr><td class="alt"> 16:00</td>
+<td class="alt">72 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:11px;"/></td></tr><tr><td> 17:00</td>
+<td>108 hits/day</td>
+<td><div class='color_bar' style="width:17px;"/></td></tr><tr><td class="alt"> 18:00</td>
+<td class="alt">107 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:17px;"/></td></tr><tr><td> 19:00</td>
+<td>145 hits/day</td>
+<td><div class='color_bar' style="width:22px;"/></td></tr><tr><td class="alt"> 20:00</td>
+<td class="alt">151 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:24px;"/></td></tr><tr><td> 21:00</td>
+<td>64 hits/day</td>
+<td><div class='color_bar' style="width:10px;"/></td></tr><tr><td class="alt"> 22:00</td>
+<td class="alt">47 hits/day</td>
+<td class="alt"><div class='color_bar' style="width:7px;"/></td></tr><tr><td> 23:00</td>
+<td>53 hits/day</td>
+<td><div class='color_bar' style="width:8px;"/></td></tr></table><h2>Most requested</h2>
+<table id="mytable" cellspacing="0"><tr><td class="alt">ApplicationController#index.HTML</td>
+<td class="alt">1793 hits</td>
+<td class="alt">10.2%</td>
+<td class="alt"><div class='color_bar' style="width:20px;"/></td></tr><tr><td>Specialist::PostulationProcessesController#bosses.JSON</td>
+<td>1705 hits</td>
+<td>9.7%</td>
+<td><div class='color_bar' style="width:19px;"/></td></tr><tr><td class="alt">PostulantController#welcome.HTML</td>
+<td class="alt">1144 hits</td>
+<td class="alt">6.5%</td>
+<td class="alt"><div class='color_bar' style="width:13px;"/></td></tr><tr><td>Specialist::PostulantsController#index.HTML</td>
+<td>1009 hits</td>
+<td>5.8%</td>
+<td><div class='color_bar' style="width:11px;"/></td></tr><tr><td class="alt">Users::SessionsController#new.HTML</td>
+<td class="alt">975 hits</td>
+<td class="alt">5.6%</td>
+<td class="alt"><div class='color_bar' style="width:11px;"/></td></tr><tr><td>Specialist::PostulationProcessesController#positions.JSON</td>
+<td>785 hits</td>
+<td>4.5%</td>
+<td><div class='color_bar' style="width:8px;"/></td></tr><tr><td class="alt">Users::SessionsController#create.HTML</td>
+<td class="alt">767 hits</td>
+<td class="alt">4.4%</td>
+<td class="alt"><div class='color_bar' style="width:8px;"/></td></tr><tr><td>PostulantController#test.HTML</td>
+<td>738 hits</td>
+<td>4.2%</td>
+<td><div class='color_bar' style="width:8px;"/></td></tr><tr><td class="alt">Specialist::PostulantsController#show.HTML</td>
+<td class="alt">615 hits</td>
+<td class="alt">3.5%</td>
+<td class="alt"><div class='color_bar' style="width:7px;"/></td></tr><tr><td>Specialist::FairsController#create_postulant.HTML</td>
+<td>593 hits</td>
+<td>3.4%</td>
+<td><div class='color_bar' style="width:6px;"/></td></tr><tr><td class="alt">Specialist::PostulationProcessesController#business_partners.JSON</td>
+<td class="alt">538 hits</td>
+<td class="alt">3.1%</td>
+<td class="alt"><div class='color_bar' style="width:6px;"/></td></tr><tr><td>Specialist::PostulationProcessesController#cencos.JSON</td>
+<td>534 hits</td>
+<td>3.0%</td>
+<td><div class='color_bar' style="width:6px;"/></td></tr><tr><td class="alt">Users::SessionsController#destroy.HTML</td>
+<td class="alt">498 hits</td>
+<td class="alt">2.8%</td>
+<td class="alt"><div class='color_bar' style="width:5px;"/></td></tr><tr><td>Specialist::FairsController#new_postulant.HTML</td>
+<td>403 hits</td>
+<td>2.3%</td>
+<td><div class='color_bar' style="width:4px;"/></td></tr><tr><td class="alt">PostulantController#information.HTML</td>
+<td class="alt">375 hits</td>
+<td class="alt">2.1%</td>
+<td class="alt"><div class='color_bar' style="width:4px;"/></td></tr><tr><td>#.</td>
+<td>320 hits</td>
+<td>1.8%</td>
+<td><div class='color_bar' style="width:3px;"/></td></tr><tr><td class="alt">SpecialistController#index.HTML</td>
+<td class="alt">315 hits</td>
+<td class="alt">1.8%</td>
+<td class="alt"><div class='color_bar' style="width:3px;"/></td></tr><tr><td>Users::InvitationsController#edit.HTML</td>
+<td>306 hits</td>
+<td>1.7%</td>
+<td><div class='color_bar' style="width:3px;"/></td></tr><tr><td class="alt">PostulantController#profile.HTML</td>
+<td class="alt">288 hits</td>
+<td class="alt">1.6%</td>
+<td class="alt"><div class='color_bar' style="width:3px;"/></td></tr><tr><td>PostulantController#update.HTML</td>
+<td>231 hits</td>
+<td>1.3%</td>
+<td><div class='color_bar' style="width:2px;"/></td></tr></table><h2>HTTP methods</h2>
+<table id="mytable" cellspacing="0"><tr><td class="alt">GET</td>
+<td class="alt">14223 hits</td>
+<td class="alt">81.1%</td>
+<td class="alt"><div class='color_bar' style="width:162px;"/></td></tr><tr><td>POST</td>
+<td>2516 hits</td>
+<td>14.4%</td>
+<td><div class='color_bar' style="width:28px;"/></td></tr><tr><td class="alt">PUT</td>
+<td class="alt">770 hits</td>
+<td class="alt">4.4%</td>
+<td class="alt"><div class='color_bar' style="width:8px;"/></td></tr><tr><td>CONNECT</td>
+<td>22 hits</td>
+<td>0.1%</td>
+<td><div class='color_bar' style="width:0px;"/></td></tr></table><h2>HTTP statuses returned</h2>
+<table id="mytable" cellspacing="0"><tr><td class="alt">200</td>
+<td class="alt">11620 hits</td>
+<td class="alt">68.4%</td>
+<td class="alt"><div class='color_bar' style="width:136px;"/></td></tr><tr><td>302</td>
+<td>5197 hits</td>
+<td>30.6%</td>
+<td><div class='color_bar' style="width:61px;"/></td></tr><tr><td class="alt">401</td>
+<td class="alt">156 hits</td>
+<td class="alt">0.9%</td>
+<td class="alt"><div class='color_bar' style="width:1px;"/></td></tr><tr><td>500</td>
+<td>16 hits</td>
+<td>0.1%</td>
+<td><div class='color_bar' style="width:0px;"/></td></tr></table><br/>
+<table id="mytable" cellspacing="0"><tr><th>Request duration - by sum</th>
+<th>Hits</th>
+<th>Sum</th>
+<th>Mean</th>
+<th>StdDev</th>
+<th>Min</th>
+<th>Max</th>
+<th>95 %tile</th></tr><tr><td class="alt">Users::SessionsController#create.HTML</td>
+<td class="alt">762</td>
+<td class="alt">11m56s</td>
+<td class="alt">0.94s</td>
+<td class="alt">0.41s</td>
+<td class="alt">0.00s</td>
+<td class="alt">2.51s</td>
+<td class="alt">0.00s-2.02s</td></tr><tr><td>Specialist::PostulantsController#create.HTML</td>
+<td>204</td>
+<td>11m45s</td>
+<td>3.46s</td>
+<td>1.67s</td>
+<td>0.02s</td>
+<td>7.68s</td>
+<td>0.08s-6.98s</td></tr><tr><td class="alt">Specialist::FairsController#show.HTML</td>
+<td class="alt">148</td>
+<td class="alt">8m15s</td>
+<td class="alt">3.34s</td>
+<td class="alt">2.43s</td>
+<td class="alt">0.07s</td>
+<td class="alt">11.71s</td>
+<td class="alt">0.07s-10.28s</td></tr><tr><td>Specialist::PostulantsController#show.HTML</td>
+<td>600</td>
+<td>6m43s</td>
+<td>0.67s</td>
+<td>0.47s</td>
+<td>0.22s</td>
+<td>4.26s</td>
+<td>0.30s-1.86s</td></tr><tr><td class="alt">Specialist::FairsController#new_postulant.HTML</td>
+<td class="alt">396</td>
+<td class="alt">6m01s</td>
+<td class="alt">0.91s</td>
+<td class="alt">0.88s</td>
+<td class="alt">0.41s</td>
+<td class="alt">16.84s</td>
+<td class="alt">0.56s-2.22s</td></tr><tr><td>Specialist::PostulantsController#index.HTML</td>
+<td>1000</td>
+<td>5m54s</td>
+<td>0.35s</td>
+<td>0.36s</td>
+<td>0.06s</td>
+<td>6.65s</td>
+<td>0.09s-1.08s</td></tr><tr><td class="alt">Specialist::FairsController#create_postulant.HTML</td>
+<td class="alt">586</td>
+<td class="alt">4m58s</td>
+<td class="alt">0.51s</td>
+<td class="alt">0.53s</td>
+<td class="alt">0.09s</td>
+<td class="alt">5.64s</td>
+<td class="alt">0.10s-1.83s</td></tr><tr><td>PostulantController#profile_download.PDF</td>
+<td>53</td>
+<td>4m18s</td>
+<td>4.86s</td>
+<td>1.47s</td>
+<td>0.03s</td>
+<td>8.98s</td>
+<td>3.91s-8.61s</td></tr><tr><td class="alt">Specialist::PostulantsController#manual_send_mail.JS</td>
+<td class="alt">145</td>
+<td class="alt">3m52s</td>
+<td class="alt">1.60s</td>
+<td class="alt">4.60s</td>
+<td class="alt">0.03s</td>
+<td class="alt">39.63s</td>
+<td class="alt">0.07s-18.97s</td></tr><tr><td>PostulantController#information.HTML</td>
+<td>366</td>
+<td>3m10s</td>
+<td>0.52s</td>
+<td>0.40s</td>
+<td>0.01s</td>
+<td>3.48s</td>
+<td>0.15s-1.69s</td></tr><tr><td class="alt">Specialist::PostulantsController#update_from_show.HTML</td>
+<td class="alt">135</td>
+<td class="alt">3m06s</td>
+<td class="alt">1.38s</td>
+<td class="alt">2.73s</td>
+<td class="alt">0.05s</td>
+<td class="alt">11.35s</td>
+<td class="alt">0.07s-10.96s</td></tr><tr><td>PostulantController#profile.HTML</td>
+<td>284</td>
+<td>3m05s</td>
+<td>0.65s</td>
+<td>0.28s</td>
+<td>0.26s</td>
+<td>3.34s</td>
+<td>0.35s-1.37s</td></tr><tr><td class="alt">Users::InvitationsController#update.HTML</td>
+<td class="alt">184</td>
+<td class="alt">2m55s</td>
+<td class="alt">0.95s</td>
+<td class="alt">0.36s</td>
+<td class="alt">0.00s</td>
+<td class="alt">2.56s</td>
+<td class="alt">0.00s-1.92s</td></tr><tr><td>Specialist::PostulationProcessesController#index.HTML</td>
+<td>224</td>
+<td>2m49s</td>
+<td>0.75s</td>
+<td>0.49s</td>
+<td>0.32s</td>
+<td>3.08s</td>
+<td>0.44s-2.83s</td></tr><tr><td class="alt">SpecialistController#index.HTML</td>
+<td class="alt">308</td>
+<td class="alt">1m37s</td>
+<td class="alt">0.31s</td>
+<td class="alt">0.42s</td>
+<td class="alt">0.09s</td>
+<td class="alt">2.31s</td>
+<td class="alt">0.10s-1.92s</td></tr><tr><td>Specialist::PostulationProcessesController#new.HTML</td>
+<td>112</td>
+<td>1m24s</td>
+<td>0.75s</td>
+<td>0.53s</td>
+<td>0.38s</td>
+<td>3.87s</td>
+<td>0.41s-3.66s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#create.HTML</td>
+<td class="alt">128</td>
+<td class="alt">1m18s</td>
+<td class="alt">0.61s</td>
+<td class="alt">0.88s</td>
+<td class="alt">0.03s</td>
+<td class="alt">3.88s</td>
+<td class="alt">0.06s-3.91s</td></tr><tr><td>PostulantController#information_update.HTML</td>
+<td>208</td>
+<td>1m16s</td>
+<td>0.36s</td>
+<td>0.26s</td>
+<td>0.03s</td>
+<td>1.28s</td>
+<td>0.05s-0.96s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#bosses.JSON</td>
+<td class="alt">1683</td>
+<td class="alt">1m12s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.06s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.96s</td>
+<td class="alt">0.01s-0.24s</td></tr><tr><td>Specialist::PostulantsController#invite.HTML</td>
+<td>16</td>
+<td>1m03s</td>
+<td>3.94s</td>
+<td>0.92s</td>
+<td>2.80s</td>
+<td>5.42s</td>
+<td>2.79s-5.48s</td></tr></table><br/>
+<table id="mytable" cellspacing="0"><tr><th>Request duration - by mean</th>
+<th>Hits</th>
+<th>Sum</th>
+<th>Mean</th>
+<th>StdDev</th>
+<th>Min</th>
+<th>Max</th>
+<th>95 %tile</th></tr><tr><td class="alt">PostulantController#profile_download.PDF</td>
+<td class="alt">53</td>
+<td class="alt">4m18s</td>
+<td class="alt">4.86s</td>
+<td class="alt">1.47s</td>
+<td class="alt">0.03s</td>
+<td class="alt">8.98s</td>
+<td class="alt">3.91s-8.61s</td></tr><tr><td>Specialist::PostulantsController#invite.HTML</td>
+<td>16</td>
+<td>1m03s</td>
+<td>3.94s</td>
+<td>0.92s</td>
+<td>2.80s</td>
+<td>5.42s</td>
+<td>2.79s-5.48s</td></tr><tr><td class="alt">Specialist::PostulantsController#create.*/*</td>
+<td class="alt">2</td>
+<td class="alt">7.43s</td>
+<td class="alt">3.71s</td>
+<td class="alt">1.35s</td>
+<td class="alt">2.76s</td>
+<td class="alt">4.67s</td>
+<td class="alt">2.74s-4.74s</td></tr><tr><td>Specialist::PostulantsController#create.HTML</td>
+<td>204</td>
+<td>11m45s</td>
+<td>3.46s</td>
+<td>1.67s</td>
+<td>0.02s</td>
+<td>7.68s</td>
+<td>0.08s-6.98s</td></tr><tr><td class="alt">Specialist::FairsController#show.HTML</td>
+<td class="alt">148</td>
+<td class="alt">8m15s</td>
+<td class="alt">3.34s</td>
+<td class="alt">2.43s</td>
+<td class="alt">0.07s</td>
+<td class="alt">11.71s</td>
+<td class="alt">0.07s-10.28s</td></tr><tr><td>Devise::PasswordsController#create.HTML</td>
+<td>19</td>
+<td>58.71s</td>
+<td>3.09s</td>
+<td>2.19s</td>
+<td>0.04s</td>
+<td>6.35s</td>
+<td>0.04s-6.44s</td></tr><tr><td class="alt">Specialist::PostulantsController#update.HTML</td>
+<td class="alt">19</td>
+<td class="alt">31.28s</td>
+<td class="alt">1.65s</td>
+<td class="alt">2.40s</td>
+<td class="alt">0.03s</td>
+<td class="alt">7.28s</td>
+<td class="alt">0.03s-7.33s</td></tr><tr><td>Specialist::PostulantsController#manual_send_mail.JS</td>
+<td>145</td>
+<td>3m52s</td>
+<td>1.60s</td>
+<td>4.60s</td>
+<td>0.03s</td>
+<td>39.63s</td>
+<td>0.07s-18.97s</td></tr><tr><td class="alt">Specialist::PostulantsController#update_from_show.HTML</td>
+<td class="alt">135</td>
+<td class="alt">3m06s</td>
+<td class="alt">1.38s</td>
+<td class="alt">2.73s</td>
+<td class="alt">0.05s</td>
+<td class="alt">11.35s</td>
+<td class="alt">0.07s-10.96s</td></tr><tr><td>Specialist::PostulationProcessesController#index.*/*</td>
+<td>3</td>
+<td>3.41s</td>
+<td>1.14s</td>
+<td>0.69s</td>
+<td>0.73s</td>
+<td>1.93s</td>
+<td>0.73s-1.95s</td></tr><tr><td class="alt">Devise::PasswordsController#update.HTML</td>
+<td class="alt">14</td>
+<td class="alt">15.67s</td>
+<td class="alt">1.12s</td>
+<td class="alt">0.37s</td>
+<td class="alt">0.94s</td>
+<td class="alt">2.01s</td>
+<td class="alt">0.93s-2.02s</td></tr><tr><td>Users::InvitationsController#update.*/*</td>
+<td>2</td>
+<td>1.96s</td>
+<td>0.98s</td>
+<td>0.04s</td>
+<td>0.95s</td>
+<td>1.01s</td>
+<td>0.95s-1.01s</td></tr><tr><td class="alt">Users::SessionsController#create.*/*</td>
+<td class="alt">14</td>
+<td class="alt">13.38s</td>
+<td class="alt">0.96s</td>
+<td class="alt">0.06s</td>
+<td class="alt">0.92s</td>
+<td class="alt">1.14s</td>
+<td class="alt">0.90s-1.15s</td></tr><tr><td>Users::InvitationsController#update.HTML</td>
+<td>184</td>
+<td>2m55s</td>
+<td>0.95s</td>
+<td>0.36s</td>
+<td>0.00s</td>
+<td>2.56s</td>
+<td>0.00s-1.92s</td></tr><tr><td class="alt">Users::SessionsController#create.HTML</td>
+<td class="alt">762</td>
+<td class="alt">11m56s</td>
+<td class="alt">0.94s</td>
+<td class="alt">0.41s</td>
+<td class="alt">0.00s</td>
+<td class="alt">2.51s</td>
+<td class="alt">0.00s-2.02s</td></tr><tr><td>Specialist::FairsController#new_postulant.HTML</td>
+<td>396</td>
+<td>6m01s</td>
+<td>0.91s</td>
+<td>0.88s</td>
+<td>0.41s</td>
+<td>16.84s</td>
+<td>0.56s-2.22s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#edit.*/*</td>
+<td class="alt">1</td>
+<td class="alt">0.80s</td>
+<td class="alt">0.80s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.80s</td>
+<td class="alt">0.80s</td>
+<td class="alt">0.79s-0.82s</td></tr><tr><td>Specialist::PostulationProcessesController#index.HTML</td>
+<td>224</td>
+<td>2m49s</td>
+<td>0.75s</td>
+<td>0.49s</td>
+<td>0.32s</td>
+<td>3.08s</td>
+<td>0.44s-2.83s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#new.HTML</td>
+<td class="alt">112</td>
+<td class="alt">1m24s</td>
+<td class="alt">0.75s</td>
+<td class="alt">0.53s</td>
+<td class="alt">0.38s</td>
+<td class="alt">3.87s</td>
+<td class="alt">0.41s-3.66s</td></tr><tr><td>Specialist::PostulationProcessesController#new.*/*</td>
+<td>2</td>
+<td>1.49s</td>
+<td>0.75s</td>
+<td>0.21s</td>
+<td>0.60s</td>
+<td>0.90s</td>
+<td>0.59s-0.90s</td></tr></table><br/>
+<table id="mytable" cellspacing="0"><tr><th>View rendering time - by sum</th>
+<th>Hits</th>
+<th>Sum</th>
+<th>Mean</th>
+<th>StdDev</th>
+<th>Min</th>
+<th>Max</th>
+<th>95 %tile</th></tr><tr><td class="alt">Specialist::FairsController#show.HTML</td>
+<td class="alt">148</td>
+<td class="alt">7m04s</td>
+<td class="alt">2.86s</td>
+<td class="alt">2.02s</td>
+<td class="alt">0.03s</td>
+<td class="alt">9.42s</td>
+<td class="alt">0.05s-8.47s</td></tr><tr><td>Specialist::PostulantsController#show.HTML</td>
+<td>600</td>
+<td>6m13s</td>
+<td>0.62s</td>
+<td>0.44s</td>
+<td>0.18s</td>
+<td>3.74s</td>
+<td>0.24s-1.69s</td></tr><tr><td class="alt">Specialist::FairsController#new_postulant.HTML</td>
+<td class="alt">396</td>
+<td class="alt">5m04s</td>
+<td class="alt">0.77s</td>
+<td class="alt">0.54s</td>
+<td class="alt">0.35s</td>
+<td class="alt">9.99s</td>
+<td class="alt">0.49s-1.86s</td></tr><tr><td>Specialist::PostulantsController#index.HTML</td>
+<td>992</td>
+<td>4m19s</td>
+<td>0.26s</td>
+<td>0.23s</td>
+<td>0.01s</td>
+<td>3.18s</td>
+<td>0.05s-0.78s</td></tr><tr><td class="alt">Specialist::FairsController#create_postulant.HTML</td>
+<td class="alt">253</td>
+<td class="alt">3m02s</td>
+<td class="alt">0.72s</td>
+<td class="alt">0.32s</td>
+<td class="alt">0.03s</td>
+<td class="alt">4.90s</td>
+<td class="alt">0.50s-1.42s</td></tr><tr><td>PostulantController#information.HTML</td>
+<td>362</td>
+<td>2m51s</td>
+<td>0.47s</td>
+<td>0.29s</td>
+<td>0.09s</td>
+<td>2.39s</td>
+<td>0.15s-1.35s</td></tr><tr><td class="alt">PostulantController#profile.HTML</td>
+<td class="alt">284</td>
+<td class="alt">2m43s</td>
+<td class="alt">0.57s</td>
+<td class="alt">0.23s</td>
+<td class="alt">0.22s</td>
+<td class="alt">2.32s</td>
+<td class="alt">0.30s-1.13s</td></tr><tr><td>Specialist::PostulationProcessesController#index.HTML</td>
+<td>224</td>
+<td>2m33s</td>
+<td>0.68s</td>
+<td>0.48s</td>
+<td>0.27s</td>
+<td>2.87s</td>
+<td>0.38s-2.65s</td></tr><tr><td class="alt">SpecialistController#index.HTML</td>
+<td class="alt">308</td>
+<td class="alt">1m24s</td>
+<td class="alt">0.27s</td>
+<td class="alt">0.41s</td>
+<td class="alt">0.04s</td>
+<td class="alt">2.03s</td>
+<td class="alt">0.06s-1.89s</td></tr><tr><td>Specialist::PostulationProcessesController#new.HTML</td>
+<td>112</td>
+<td>1m17s</td>
+<td>0.68s</td>
+<td>0.42s</td>
+<td>0.32s</td>
+<td>3.09s</td>
+<td>0.39s-3.02s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#edit.HTML</td>
+<td class="alt">83</td>
+<td class="alt">55.84s</td>
+<td class="alt">0.67s</td>
+<td class="alt">0.20s</td>
+<td class="alt">0.42s</td>
+<td class="alt">1.44s</td>
+<td class="alt">0.51s-1.26s</td></tr><tr><td>Specialist::PostulantsController#new.HTML</td>
+<td>226</td>
+<td>52.27s</td>
+<td>0.23s</td>
+<td>0.16s</td>
+<td>0.06s</td>
+<td>1.15s</td>
+<td>0.06s-0.63s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#create.HTML</td>
+<td class="alt">50</td>
+<td class="alt">42.02s</td>
+<td class="alt">0.84s</td>
+<td class="alt">0.49s</td>
+<td class="alt">0.38s</td>
+<td class="alt">2.08s</td>
+<td class="alt">0.50s-2.02s</td></tr><tr><td>Users::SessionsController#new.HTML</td>
+<td>963</td>
+<td>41.37s</td>
+<td>0.04s</td>
+<td>0.10s</td>
+<td>0.01s</td>
+<td>1.63s</td>
+<td>0.01s-0.34s</td></tr><tr><td class="alt">PostulantController#welcome.HTML</td>
+<td class="alt">686</td>
+<td class="alt">28.36s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.15s</td>
+<td class="alt">0.01s</td>
+<td class="alt">1.52s</td>
+<td class="alt">0.01s-0.21s</td></tr><tr><td>PostulantController#profile.*/*</td>
+<td>45</td>
+<td>23.74s</td>
+<td>0.53s</td>
+<td>0.20s</td>
+<td>0.40s</td>
+<td>1.43s</td>
+<td>0.40s-1.44s</td></tr><tr><td class="alt">PostulantController#information_update.HTML</td>
+<td class="alt">49</td>
+<td class="alt">23.35s</td>
+<td class="alt">0.48s</td>
+<td class="alt">0.15s</td>
+<td class="alt">0.15s</td>
+<td class="alt">0.81s</td>
+<td class="alt">0.18s-0.82s</td></tr><tr><td>PostulantController#test.HTML</td>
+<td>720</td>
+<td>21.85s</td>
+<td>0.03s</td>
+<td>0.06s</td>
+<td>0.01s</td>
+<td>0.43s</td>
+<td>0.01s-0.21s</td></tr><tr><td class="alt">PostulantController#update.HTML</td>
+<td class="alt">32</td>
+<td class="alt">18.44s</td>
+<td class="alt">0.58s</td>
+<td class="alt">0.25s</td>
+<td class="alt">0.43s</td>
+<td class="alt">1.70s</td>
+<td class="alt">0.42s-1.72s</td></tr><tr><td>Specialist::PostulationProcessesController#bosses.JSON</td>
+<td>1683</td>
+<td>17.86s</td>
+<td>0.01s</td>
+<td>0.03s</td>
+<td>0.00s</td>
+<td>0.46s</td>
+<td>0.00s-0.10s</td></tr></table><br/>
+<table id="mytable" cellspacing="0"><tr><th>View rendering time - by mean</th>
+<th>Hits</th>
+<th>Sum</th>
+<th>Mean</th>
+<th>StdDev</th>
+<th>Min</th>
+<th>Max</th>
+<th>95 %tile</th></tr><tr><td class="alt">Specialist::FairsController#show.HTML</td>
+<td class="alt">148</td>
+<td class="alt">7m04s</td>
+<td class="alt">2.86s</td>
+<td class="alt">2.02s</td>
+<td class="alt">0.03s</td>
+<td class="alt">9.42s</td>
+<td class="alt">0.05s-8.47s</td></tr><tr><td>Specialist::PostulationProcessesController#index.*/*</td>
+<td>3</td>
+<td>3.11s</td>
+<td>1.04s</td>
+<td>0.59s</td>
+<td>0.69s</td>
+<td>1.71s</td>
+<td>0.69s-1.72s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#create.HTML</td>
+<td class="alt">50</td>
+<td class="alt">42.02s</td>
+<td class="alt">0.84s</td>
+<td class="alt">0.49s</td>
+<td class="alt">0.38s</td>
+<td class="alt">2.08s</td>
+<td class="alt">0.50s-2.02s</td></tr><tr><td>Specialist::FairsController#new_postulant.HTML</td>
+<td>396</td>
+<td>5m04s</td>
+<td>0.77s</td>
+<td>0.54s</td>
+<td>0.35s</td>
+<td>9.99s</td>
+<td>0.49s-1.86s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#edit.*/*</td>
+<td class="alt">1</td>
+<td class="alt">0.72s</td>
+<td class="alt">0.72s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.72s</td>
+<td class="alt">0.72s</td>
+<td class="alt">0.72s-0.74s</td></tr><tr><td>Specialist::FairsController#create_postulant.HTML</td>
+<td>253</td>
+<td>3m02s</td>
+<td>0.72s</td>
+<td>0.32s</td>
+<td>0.03s</td>
+<td>4.90s</td>
+<td>0.50s-1.42s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#new.*/*</td>
+<td class="alt">2</td>
+<td class="alt">1.39s</td>
+<td class="alt">0.69s</td>
+<td class="alt">0.21s</td>
+<td class="alt">0.55s</td>
+<td class="alt">0.84s</td>
+<td class="alt">0.54s-0.85s</td></tr><tr><td>Specialist::PostulationProcessesController#new.HTML</td>
+<td>112</td>
+<td>1m17s</td>
+<td>0.68s</td>
+<td>0.42s</td>
+<td>0.32s</td>
+<td>3.09s</td>
+<td>0.39s-3.02s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#index.HTML</td>
+<td class="alt">224</td>
+<td class="alt">2m33s</td>
+<td class="alt">0.68s</td>
+<td class="alt">0.48s</td>
+<td class="alt">0.27s</td>
+<td class="alt">2.87s</td>
+<td class="alt">0.38s-2.65s</td></tr><tr><td>Specialist::PostulationProcessesController#edit.HTML</td>
+<td>83</td>
+<td>55.84s</td>
+<td>0.67s</td>
+<td>0.20s</td>
+<td>0.42s</td>
+<td>1.44s</td>
+<td>0.51s-1.26s</td></tr><tr><td class="alt">Specialist::PostulantsController#update_from_show.HTML</td>
+<td class="alt">6</td>
+<td class="alt">3.83s</td>
+<td class="alt">0.64s</td>
+<td class="alt">0.46s</td>
+<td class="alt">0.35s</td>
+<td class="alt">1.48s</td>
+<td class="alt">0.35s-1.49s</td></tr><tr><td>Specialist::PostulantsController#show.HTML</td>
+<td>600</td>
+<td>6m13s</td>
+<td>0.62s</td>
+<td>0.44s</td>
+<td>0.18s</td>
+<td>3.74s</td>
+<td>0.24s-1.69s</td></tr><tr><td class="alt">Specialist::PostulantsController#show.*/*</td>
+<td class="alt">11</td>
+<td class="alt">6.78s</td>
+<td class="alt">0.62s</td>
+<td class="alt">0.23s</td>
+<td class="alt">0.40s</td>
+<td class="alt">1.03s</td>
+<td class="alt">0.40s-1.04s</td></tr><tr><td>Specialist::FairsController#new_postulant.*/*</td>
+<td>1</td>
+<td>0.61s</td>
+<td>0.61s</td>
+<td>0.00s</td>
+<td>0.61s</td>
+<td>0.61s</td>
+<td>0.61s-0.63s</td></tr><tr><td class="alt">PostulantController#update.HTML</td>
+<td class="alt">32</td>
+<td class="alt">18.44s</td>
+<td class="alt">0.58s</td>
+<td class="alt">0.25s</td>
+<td class="alt">0.43s</td>
+<td class="alt">1.70s</td>
+<td class="alt">0.42s-1.72s</td></tr><tr><td>PostulantController#information.*/*</td>
+<td>8</td>
+<td>4.59s</td>
+<td>0.57s</td>
+<td>0.21s</td>
+<td>0.11s</td>
+<td>0.77s</td>
+<td>0.11s-0.78s</td></tr><tr><td class="alt">PostulantController#profile.HTML</td>
+<td class="alt">284</td>
+<td class="alt">2m43s</td>
+<td class="alt">0.57s</td>
+<td class="alt">0.23s</td>
+<td class="alt">0.22s</td>
+<td class="alt">2.32s</td>
+<td class="alt">0.30s-1.13s</td></tr><tr><td>Specialist::FairsController#create_postulant.*/*</td>
+<td>1</td>
+<td>0.57s</td>
+<td>0.57s</td>
+<td>0.00s</td>
+<td>0.57s</td>
+<td>0.57s</td>
+<td>0.56s-0.58s</td></tr><tr><td class="alt">Users::SessionsController#create.HTML</td>
+<td class="alt">2</td>
+<td class="alt">1.13s</td>
+<td class="alt">0.57s</td>
+<td class="alt">0.77s</td>
+<td class="alt">0.02s</td>
+<td class="alt">1.11s</td>
+<td class="alt">0.02s-1.13s</td></tr><tr><td>Specialist::PostulationProcessesController#update.HTML</td>
+<td>2</td>
+<td>1.13s</td>
+<td>0.56s</td>
+<td>0.05s</td>
+<td>0.53s</td>
+<td>0.60s</td>
+<td>0.52s-0.60s</td></tr></table><br/>
+<table id="mytable" cellspacing="0"><tr><th>Database time - by sum</th>
+<th>Hits</th>
+<th>Sum</th>
+<th>Mean</th>
+<th>StdDev</th>
+<th>Min</th>
+<th>Max</th>
+<th>95 %tile</th></tr><tr><td class="alt">Specialist::FairsController#show.HTML</td>
+<td class="alt">148</td>
+<td class="alt">1m08s</td>
+<td class="alt">0.46s</td>
+<td class="alt">0.43s</td>
+<td class="alt">0.00s</td>
+<td class="alt">2.25s</td>
+<td class="alt">0.00s-1.83s</td></tr><tr><td>Specialist::PostulantsController#index.HTML</td>
+<td>992</td>
+<td>53.68s</td>
+<td>0.05s</td>
+<td>0.05s</td>
+<td>0.00s</td>
+<td>0.39s</td>
+<td>0.00s-0.15s</td></tr><tr><td class="alt">Specialist::PostulantsController#show.HTML</td>
+<td class="alt">600</td>
+<td class="alt">14.78s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.03s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.29s</td>
+<td class="alt">0.01s-0.09s</td></tr><tr><td>Specialist::PostulationProcessesController#bosses.JSON</td>
+<td>1683</td>
+<td>13.58s</td>
+<td>0.01s</td>
+<td>0.02s</td>
+<td>0.00s</td>
+<td>0.32s</td>
+<td>0.00s-0.08s</td></tr><tr><td class="alt">SpecialistController#index.HTML</td>
+<td class="alt">308</td>
+<td class="alt">11.21s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.40s</td>
+<td class="alt">0.01s-0.15s</td></tr><tr><td>Specialist::FairsController#new_postulant.HTML</td>
+<td>396</td>
+<td>5.32s</td>
+<td>0.01s</td>
+<td>0.02s</td>
+<td>0.00s</td>
+<td>0.26s</td>
+<td>0.00s-0.08s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#index.HTML</td>
+<td class="alt">224</td>
+<td class="alt">4.76s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.03s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.28s</td>
+<td class="alt">0.01s-0.09s</td></tr><tr><td>Specialist::FairsController#create_postulant.HTML</td>
+<td>253</td>
+<td>4.30s</td>
+<td>0.02s</td>
+<td>0.05s</td>
+<td>0.00s</td>
+<td>0.73s</td>
+<td>0.01s-0.07s</td></tr><tr><td class="alt">Specialist::PostulantsController#manual_send_mail.JS</td>
+<td class="alt">144</td>
+<td class="alt">3.40s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.12s</td>
+<td class="alt">0.01s-0.08s</td></tr><tr><td>PostulantController#profile.HTML</td>
+<td>284</td>
+<td>3.34s</td>
+<td>0.01s</td>
+<td>0.02s</td>
+<td>0.00s</td>
+<td>0.19s</td>
+<td>0.00s-0.06s</td></tr><tr><td class="alt">PostulantController#information.HTML</td>
+<td class="alt">362</td>
+<td class="alt">2.91s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.18s</td>
+<td class="alt">0.00s-0.04s</td></tr><tr><td>Specialist::PostulationProcessesController#business_partners.JSON</td>
+<td>528</td>
+<td>1.95s</td>
+<td>0.00s</td>
+<td>0.01s</td>
+<td>0.00s</td>
+<td>0.20s</td>
+<td>0.00s-0.03s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#cencos.JSON</td>
+<td class="alt">524</td>
+<td class="alt">1.89s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.14s</td>
+<td class="alt">0.00s-0.03s</td></tr><tr><td>Specialist::PostulationProcessesController#positions.JSON</td>
+<td>771</td>
+<td>1.67s</td>
+<td>0.00s</td>
+<td>0.01s</td>
+<td>0.00s</td>
+<td>0.12s</td>
+<td>0.00s-0.03s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#new.HTML</td>
+<td class="alt">112</td>
+<td class="alt">1.15s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.05s</td>
+<td class="alt">0.00s-0.04s</td></tr><tr><td>Specialist::PostulationProcessesController#edit.HTML</td>
+<td>83</td>
+<td>1.13s</td>
+<td>0.01s</td>
+<td>0.02s</td>
+<td>0.00s</td>
+<td>0.16s</td>
+<td>0.01s-0.05s</td></tr><tr><td class="alt">Specialist::PostulantsController#new.HTML</td>
+<td class="alt">226</td>
+<td class="alt">1.02s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.14s</td>
+<td class="alt">0.00s-0.03s</td></tr><tr><td>Specialist::PostulantsController#index.*/*</td>
+<td>21</td>
+<td>0.96s</td>
+<td>0.05s</td>
+<td>0.03s</td>
+<td>0.00s</td>
+<td>0.10s</td>
+<td>0.00s-0.10s</td></tr><tr><td class="alt">#.</td>
+<td class="alt">20</td>
+<td class="alt">0.87s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.07s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.22s</td>
+<td class="alt">0.00s-0.23s</td></tr><tr><td>PostulantController#test.HTML</td>
+<td>720</td>
+<td>0.83s</td>
+<td>0.00s</td>
+<td>0.00s</td>
+<td>0.00s</td>
+<td>0.04s</td>
+<td>0.00s-0.01s</td></tr></table><br/>
+<table id="mytable" cellspacing="0"><tr><th>Database time - by mean</th>
+<th>Hits</th>
+<th>Sum</th>
+<th>Mean</th>
+<th>StdDev</th>
+<th>Min</th>
+<th>Max</th>
+<th>95 %tile</th></tr><tr><td class="alt">Specialist::FairsController#show.HTML</td>
+<td class="alt">148</td>
+<td class="alt">1m08s</td>
+<td class="alt">0.46s</td>
+<td class="alt">0.43s</td>
+<td class="alt">0.00s</td>
+<td class="alt">2.25s</td>
+<td class="alt">0.00s-1.83s</td></tr><tr><td>Specialist::PostulantsController#index.HTML</td>
+<td>992</td>
+<td>53.68s</td>
+<td>0.05s</td>
+<td>0.05s</td>
+<td>0.00s</td>
+<td>0.39s</td>
+<td>0.00s-0.15s</td></tr><tr><td class="alt">Specialist::PostulantsController#index.*/*</td>
+<td class="alt">21</td>
+<td class="alt">0.96s</td>
+<td class="alt">0.05s</td>
+<td class="alt">0.03s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.10s</td>
+<td class="alt">0.00s-0.10s</td></tr><tr><td>#.</td>
+<td>20</td>
+<td>0.87s</td>
+<td>0.04s</td>
+<td>0.07s</td>
+<td>0.00s</td>
+<td>0.22s</td>
+<td>0.00s-0.23s</td></tr><tr><td class="alt">SpecialistController#index.HTML</td>
+<td class="alt">308</td>
+<td class="alt">11.21s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.40s</td>
+<td class="alt">0.01s-0.15s</td></tr><tr><td>Specialist::PostulantsController#update_from_show.HTML</td>
+<td>6</td>
+<td>0.21s</td>
+<td>0.04s</td>
+<td>0.02s</td>
+<td>0.02s</td>
+<td>0.06s</td>
+<td>0.02s-0.06s</td></tr><tr><td class="alt">Users::SessionsController#create.HTML</td>
+<td class="alt">2</td>
+<td class="alt">0.05s</td>
+<td class="alt">0.03s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.05s</td>
+<td class="alt">0.00s-0.05s</td></tr><tr><td>Specialist::PostulantsController#show.HTML</td>
+<td>600</td>
+<td>14.78s</td>
+<td>0.02s</td>
+<td>0.03s</td>
+<td>0.00s</td>
+<td>0.29s</td>
+<td>0.01s-0.09s</td></tr><tr><td class="alt">Specialist::PostulantsController#manual_send_mail.JS</td>
+<td class="alt">144</td>
+<td class="alt">3.40s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.12s</td>
+<td class="alt">0.01s-0.08s</td></tr><tr><td>Specialist::PostulationProcessesController#index.HTML</td>
+<td>224</td>
+<td>4.76s</td>
+<td>0.02s</td>
+<td>0.03s</td>
+<td>0.01s</td>
+<td>0.28s</td>
+<td>0.01s-0.09s</td></tr><tr><td class="alt">Specialist::FairsController#create_postulant.HTML</td>
+<td class="alt">253</td>
+<td class="alt">4.30s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.05s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.73s</td>
+<td class="alt">0.01s-0.07s</td></tr><tr><td>SpecialistController#index.*/*</td>
+<td>9</td>
+<td>0.15s</td>
+<td>0.02s</td>
+<td>0.01s</td>
+<td>0.01s</td>
+<td>0.04s</td>
+<td>0.01s-0.04s</td></tr><tr><td class="alt">Specialist::PostulantsController#show.*/*</td>
+<td class="alt">11</td>
+<td class="alt">0.18s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.04s</td>
+<td class="alt">0.01s-0.04s</td></tr><tr><td>Specialist::PostulationProcessesController#create.HTML</td>
+<td>50</td>
+<td>0.76s</td>
+<td>0.02s</td>
+<td>0.02s</td>
+<td>0.00s</td>
+<td>0.12s</td>
+<td>0.00s-0.09s</td></tr><tr><td class="alt">PostulantController#profile_download.PDF</td>
+<td class="alt">52</td>
+<td class="alt">0.77s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.09s</td>
+<td class="alt">0.00s-0.06s</td></tr><tr><td>PostulantController#update.HTML</td>
+<td>32</td>
+<td>0.44s</td>
+<td>0.01s</td>
+<td>0.02s</td>
+<td>0.01s</td>
+<td>0.07s</td>
+<td>0.00s-0.07s</td></tr><tr><td class="alt">Specialist::PostulationProcessesController#edit.HTML</td>
+<td class="alt">83</td>
+<td class="alt">1.13s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.16s</td>
+<td class="alt">0.01s-0.05s</td></tr><tr><td>Specialist::FairsController#new_postulant.HTML</td>
+<td>396</td>
+<td>5.32s</td>
+<td>0.01s</td>
+<td>0.02s</td>
+<td>0.00s</td>
+<td>0.26s</td>
+<td>0.00s-0.08s</td></tr><tr><td class="alt">PostulantController#profile.HTML</td>
+<td class="alt">284</td>
+<td class="alt">3.34s</td>
+<td class="alt">0.01s</td>
+<td class="alt">0.02s</td>
+<td class="alt">0.00s</td>
+<td class="alt">0.19s</td>
+<td class="alt">0.00s-0.06s</td></tr><tr><td>PostulantController#profile.*/*</td>
+<td>45</td>
+<td>0.50s</td>
+<td>0.01s</td>
+<td>0.01s</td>
+<td>0.00s</td>
+<td>0.05s</td>
+<td>0.00s-0.05s</td></tr></table><h2>Process blockers (> 1 sec duration)</h2>
+<table id="mytable" cellspacing="0"><tr><td class="alt">Specialist::PostulantsController#create.HTML</td>
+<td class="alt">174 hits</td>
+<td class="alt">18.1%</td>
+<td class="alt"><div class='color_bar' style="width:36px;"/></td></tr><tr><td>Specialist::FairsController#show.HTML</td>
+<td>112 hits</td>
+<td>11.7%</td>
+<td><div class='color_bar' style="width:23px;"/></td></tr><tr><td class="alt">Users::SessionsController#create.HTML</td>
+<td class="alt">105 hits</td>
+<td class="alt">10.9%</td>
+<td class="alt"><div class='color_bar' style="width:21px;"/></td></tr><tr><td>Specialist::PostulantsController#show.HTML</td>
+<td>89 hits</td>
+<td>9.3%</td>
+<td><div class='color_bar' style="width:18px;"/></td></tr><tr><td class="alt">Specialist::FairsController#new_postulant.HTML</td>
+<td class="alt">58 hits</td>
+<td class="alt">6.0%</td>
+<td class="alt"><div class='color_bar' style="width:12px;"/></td></tr><tr><td>PostulantController#profile_download.PDF</td>
+<td>52 hits</td>
+<td>5.4%</td>
+<td><div class='color_bar' style="width:10px;"/></td></tr><tr><td class="alt">Users::InvitationsController#update.HTML</td>
+<td class="alt">41 hits</td>
+<td class="alt">4.3%</td>
+<td class="alt"><div class='color_bar' style="width:8px;"/></td></tr><tr><td>Specialist::FairsController#create_postulant.HTML</td>
+<td>38 hits</td>
+<td>4.0%</td>
+<td><div class='color_bar' style="width:7px;"/></td></tr><tr><td class="alt">PostulantController#information.HTML</td>
+<td class="alt">28 hits</td>
+<td class="alt">2.9%</td>
+<td class="alt"><div class='color_bar' style="width:5px;"/></td></tr><tr><td>Specialist::PostulantsController#update_from_show.HTML</td>
+<td>25 hits</td>
+<td>2.6%</td>
+<td><div class='color_bar' style="width:5px;"/></td></tr><tr><td class="alt">Specialist::PostulantsController#index.HTML</td>
+<td class="alt">25 hits</td>
+<td class="alt">2.6%</td>
+<td class="alt"><div class='color_bar' style="width:5px;"/></td></tr><tr><td>SpecialistController#index.HTML</td>
+<td>23 hits</td>
+<td>2.4%</td>
+<td><div class='color_bar' style="width:4px;"/></td></tr><tr><td class="alt">Specialist::PostulantsController#manual_send_mail.JS</td>
+<td class="alt">22 hits</td>
+<td class="alt">2.3%</td>
+<td class="alt"><div class='color_bar' style="width:4px;"/></td></tr><tr><td>PostulantController#profile.HTML</td>
+<td>19 hits</td>
+<td>2.0%</td>
+<td><div class='color_bar' style="width:3px;"/></td></tr><tr><td class="alt">Specialist::PostulationProcessesController#create.HTML</td>
+<td class="alt">18 hits</td>
+<td class="alt">1.9%</td>
+<td class="alt"><div class='color_bar' style="width:3px;"/></td></tr><tr><td>Specialist::PostulationProcessesController#index.HTML</td>
+<td>17 hits</td>
+<td>1.8%</td>
+<td><div class='color_bar' style="width:3px;"/></td></tr><tr><td class="alt">Specialist::PostulantsController#invite.HTML</td>
+<td class="alt">16 hits</td>
+<td class="alt">1.7%</td>
+<td class="alt"><div class='color_bar' style="width:3px;"/></td></tr><tr><td>Devise::PasswordsController#create.HTML</td>
+<td>14 hits</td>
+<td>1.5%</td>
+<td><div class='color_bar' style="width:2px;"/></td></tr><tr><td class="alt">Specialist::PostulationProcessesController#edit.HTML</td>
+<td class="alt">10 hits</td>
+<td class="alt">1.0%</td>
+<td class="alt"><div class='color_bar' style="width:2px;"/></td></tr><tr><td>Specialist::PostulationProcessesController#new.HTML</td>
+<td>8 hits</td>
+<td>0.8%</td>
+<td><div class='color_bar' style="width:1px;"/></td></tr></table><h2>Parse warnings</h2>
+Parsable lines were encountered without a header line before it. It<br/>
+could be that logging is not setup correctly for your application.<br/>
+Visit this website for logging configuration tips:<br/>
+<a href="http://github.com/wvanbergen/request-log-analyzer/wikis/configure-logging">http://github.com/wvanbergen/request-log-analyzer/wikis/configure-logging</a><br/>
+<br/>
+<hr /><h2>Thanks for using request-log-analyzer</h2><p>For more information please visit the <a href="http://github.com/wvanbergen/request-log-analyzer">Request-log-analyzer website</a></p><p>If you need an expert who can analyze your application, mail to <a href="mailto:contact@railsdoctors.com">contact@railsdoctors.com</a> or visit us at <a href="http://railsdoctors.com">http://railsdoctors.com</a>.</p></body></html>
