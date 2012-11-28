@@ -38,11 +38,6 @@
         <section>
           <h1>Optimizando Rails</h1>
           <p>Por Alter Lagos</p>
-          <p>
-            <a href="http://twitter.com/nomesigaporfa">
-            	<small>@nomesigaporfa</small>
-            </a>
-          </p>
         </section>
 
         <section>
@@ -69,7 +64,6 @@
       &lt;td&gt;<%= country.name %>&lt;/td&gt;
       &lt;td&gt;<%= country.iso %>&lt;/td&gt;
       <% if !country.states.blank? %>
-        &lt;td&gt;<%= country.states.count %>&lt;/td&gt;
         &lt;td&gt;<%= country.states.first.name %>&lt;/td&gt;
       <% end %>
     &lt;/tr&gt;
@@ -85,23 +79,14 @@ Started GET "/" for 127.0.0.1 at 2012-11-25 20:24:53 -0300
 Processing by CountriesController#index as HTML
   Country Load (0.4ms)  SELECT `countries`.* FROM `countries` 
   State Load (0.7ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 1
-   (0.6ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 1
   State Load (0.8ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 2
-   (0.7ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 2
   State Load (0.8ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 3
-   (0.5ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 3
   State Load (0.6ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 4
-   (0.6ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 4
   State Load (0.6ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 5
-   (0.5ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 5
   State Load (0.6ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 6
-   (0.6ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 6
   State Load (0.7ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 7
-   (0.6ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 7
   State Load (0.7ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 8
-   (0.6ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 8
   State Load (0.6ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` = 9
-   (0.5ms)  SELECT COUNT(*) FROM `states` WHERE `states`.`country_id` = 9
           </code></pre>
         </section>
 
@@ -111,6 +96,33 @@ Processing by CountriesController#index as HTML
           <pre><code contenteditable>
   # @countries = Country.all
   @countries = Country.includes(:states)
+          </code></pre>
+          <pre><code contenteditable>
+Started GET "/" for 127.0.0.1 at 2012-11-26 23:11:49 -0300
+Processing by CountriesController#index as HTML
+  Country Load (0.4ms)  SELECT `countries`.* FROM `countries` 
+  State Load (2.7ms)  SELECT `states`.* FROM `states` WHERE `states`.`country_id` IN (1, 2, 3, 4, 5, 6, 7, 8, 9)
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Active Record</h2>
+          <h3>Queries N+1</h3>
+          <pre><code contenteditable >
+  # @countries = Country.all
+  @countries = Country.includes(:states)
+          </code></pre>
+          <pre><code contenteditable>
+  <% @countries.each do |country| %>
+    &lt;tr&gt;
+      &lt;td&gt;<%= country.name %>&lt;/td&gt;
+      &lt;td&gt;<%= country.iso %>&lt;/td&gt;
+      <% if !country.states.blank? %>
+        &lt;td&gt;<%= country.states.count %>&lt;/td&gt;
+        &lt;td&gt;<%= country.states.first.name %>&lt;/td&gt;
+      <% end %>
+    &lt;/tr&gt;
+  <% end %>
           </code></pre>
         </section>
 
@@ -142,9 +154,9 @@ Processing by CountriesController#index as HTML
   # @countries = Country.includes(:states)
   @countries = Country.includes(:states)
     .select('countries.*, count(states.id) as count_states')
+    .group('countries.id')
     .joins('LEFT OUTER JOIN 
             states ON states.country_id = countries.id')
-    .group('countries.id')
           </code></pre>
           <pre><code contenteditable>
 &lt;!-- <%= country.states.count %></td> -->
@@ -167,17 +179,23 @@ Processing by CountriesController#index as HTML
           <h2>Active Record</h2>
           <h3>Queries N+1</h3>
           <h4>Bullet <a href="http://github.com/flyerhzm/bullet">github.com/flyerhzm/bullet</a></h4>
-          PONER UN PANTALLAZO CON BULLET
-          <img class="fragment" width="80%" height="40%" src="images/11.png">
+          <img class="fragment" width="80%" height="55%" src="images/8.png">
         </section>
 
         <section>
           <h2>Active Record</h2>
           <h3>Indices</h3>
           <pre><code contenteditable class="ruby">
-  add_index :countries, [:name]
-  add_index :states, [:country_id, :name]
+  add_index :countries, :id
+  add_index :states, :id
           </code></pre>
+          <div class="fragment">
+            <pre><code contenteditable class="ruby">
+  add_index :countries, :name
+  add_index :states, [:country_id, :name]
+            </code></pre>
+            <p>Rápida lectura / lenta escritura</p>
+          </div>
           <div class="fragment">
             <h4>Foreigner <a href="https://github.com/matthuhiggins/foreigner">github.com/matthuhiggins/foreigner</a></h4>
             <h4>Immigrant <a href="https://github.com/jenseng/immigrant">github.com/jenseng/immigrant</a></h4>
@@ -188,13 +206,15 @@ Processing by CountriesController#index as HTML
           <h2>Active Record</h2>
           <h3>Orden Importa</h3>
           <pre><code contenteditable class="ruby">
+  # No es lo mismo...
   State.where('country_id = ? and name like ?', id, "%#{name}%")
-  # No es lo mismo que...
+  # a...
   State.where('name like ? and country_id = ?', "%#{name}%", id)
           </code></pre>
           <pre class="fragment"><code contenteditable class="ruby">
+  # Tampoco es lo mismo...
   add_index :states, [:country_id, :name]
-  # No es lo mismo que...
+  # a...
   add_index :states, [:name, :country_id]
           </code></pre>
         </section>
@@ -223,6 +243,12 @@ Processing by CountriesController#index as HTML
     @countries = Rails.cache.fetch('sql_countries') do
       Country.all_states_and_counts_included.all
     end
+          </code></pre>
+          <pre><code contenteditable>
+  config.cache_store = :memory_store
+  config.cache_store = :file_store, "/path/to/cache/directory"
+  config.cache_store = :mem_cache_store,"mycacheserv.com" #(dalli)
+  config.cache_store = :ehcache_store #(jruby-ehcache-rails3)
           </code></pre>
         </section>
 
@@ -277,7 +303,8 @@ Processing by CountriesController#index as HTML
       if @country.save
         expire_page :action => :index
         expire_action :action => :index
-        expire_fragment :action => :index
+        expire_fragment :recent_countries
+        Rails.cache.delete('sql_countries')
         redirect_to @country
       else
         render action: "new"
@@ -325,7 +352,160 @@ Processing by CountriesController#index as HTML
         </section>
 
         <section>
+          <h2>Vistas</h2>
+          <h3>Turbolinks</h3>
+          <h4>
+            <a href="https://github.com/rails/turbolinks">github.com/rails/turbolinks</a>
+          </h4>
+          <pre><code contenteditable>
+gem 'turbolinks'
+          </code></pre>
+          <pre><code contenteditable>
+//= require turbolinks
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>Turbolinks</h3>
+          <img src="images/21.png" height="60%" width="80%">
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>Turbolinks</h3>
+          <img src="images/22.png" height="60%" width="80%">
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>Turbolinks</h3>
+          <ul>
+
+            <li>
+              Solo en browsers compatibles con pushstate
+              <img src="images/19.png">
+            </li> 
+            <li>Falta compatiblidad con librerías JS</li>
+            <li>Cache de assets debería ser suficiente</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>Minimizar peticiones</h3>
+          <pre><code contenteditable>
+<%= javascript_include_tag "application", :cache => true %>
+&lt;!-- Genera archivos 
+application-0be318f0eec99c2db112e3ca6e65a5fd.js
+application-0be318f0eec99c2db112e3ca6e65a5fd.js.gz -->
+<%= stylesheet_link_tag "application", :cache => true %>
+&lt;!-- Genera 
+application-06f6f0f956345932a6cbb043b6090d99.css
+application-06f6f0f956345932a6cbb043b6090d99.css.gz -->
+          </code></pre>
+          <pre class="fragment"><code contenteditable>
+<%= javascript_include_tag "countries", "datejs", :cache => 'countries_new' %>
+&lt;!-- Genera 
+countries_new-e217631d58cf3e5137fb1013c0f5f4be.js
+countries_new-e217631d58cf3e5137fb1013c0f5f4be.js.gz -->
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>Minimizar peticiones</h3>
+          <pre><code contenteditable>
+  RAILS_ENV=development bundle exec rake assets:precompile
+          </code></pre>
+          <pre><code contenteditable>
+  # en config/environments/development.rb
+  config.perform_caching = true
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>Expiración de cache archivos</h3>
+          <p>nginx</p>
+          <pre><code contenteditable>  location ~ ^/assets/ {
+    expires 1y;
+    add_header Cache-Control public;
+    add_header ETag "";
+    break;
+  }</code></pre>
+          <p>Apache</p>
+          <pre><code contenteditable>  &lt;LocationMatch "^/assets/.*$">
+    Header unset ETag
+    FileETag None
+    # RFC says only cache for 1 year
+    ExpiresActive On
+    ExpiresDefault "access plus 1 year"
+  &lt;/LocationMatch></code></pre>
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>compresión de assets</h3>
+          <pre><code contenteditable>
+  gem 'uglifier'
+  gem 'yui-compressor'
+          </code></pre>
+          <pre><code contenteditable>
+  config.assets.css_compressor = :yui
+  config.assets.js_compressor = :uglifier
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Vistas</h2>
+          <h3>compresión de assets</h3>
+          <p>nginx</p>
+          <pre><code contenteditable>  location ~ ^/(assets)/  {
+    root /path/to/public;
+    gzip_static on; # to serve pre-gzipped version
+    expires max;
+    add_header Cache-Control public;
+  }</code></pre>
+          <p>Apache</p>
+          <pre><code contenteditable>
+  mod_deflate
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Tips al cierre</h2>
+          <ul>
+            <li>Correr tareas lentas en background (delayed_job / resque)</li>
+            <li>Performance lo mas cercano a producción</li>
+            <li>Evaluar otras implementaciones de ruby (REE?, Jruby?) </li>
+            <li>Codificar, luego optimizar</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Referencias</h2>
+          <ul>
+            <li><a href="http://www.slideshare.net/smetana/performance-optimization-of-rails-applications">Performance optimization of rails applications</a></li>
+            <li><a href="http://railslab.newrelic.com/scaling-rails">Scaling Rails</a></li>
+            <li><a href="http://tomafro.net/2009/08/using-indexes-in-rails-index-your-associations">Using indexes in rails index your associations</a></li>
+            <li><a href="http://www.cravediy.com/59-Simple-gzip-Support-for-Apache-with-mod_rewrite.html">Simple gzip Support for Apache with mod_rewrite</a></li>
+            <li><a href="http://guides.rubyonrails.org/caching_with_rails.html">Caching with Rails</a></li>
+            <li><a href="http://guides.rubyonrails.org/asset_pipeline.html">Asset Pipeline</a></li>
+          </ul>
+        </section>
+
+        <section>
           <h1>¿Preguntas?</h1>
+        </section>
+
+        <section>
+          <h1>Gracias</h1>
+          <p>
+            <a href="http://twitter.com/nomesigaporfa">
+              @nomesigaporfa
+            </a>
+          </p>
         </section>
 
       </div>
