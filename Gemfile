@@ -17,7 +17,6 @@ group :assets do
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
-  gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
@@ -35,6 +34,8 @@ gem 'cache_digests'
 # Para hacer links de páginas mas rápidos
 gem 'turbolinks'
 
+gem 'uglifier'
+gem 'yui-compressor'
 #Otras gemas de ayuda
 gem 'ransack'
 gem 'hirb'
